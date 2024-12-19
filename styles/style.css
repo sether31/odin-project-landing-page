@@ -29,11 +29,14 @@
     --fs-md: 1.5rem;
     --fs-sm: 1.125rem;
     --fw-900: 900;
+
+    --px: 2rem;
+    --mt: 10rem;
 }
 
 /* utilities */
 .container-xl{
-    width: max(1400px, 100vw);
+    width: min(1200px, 100vw);
     margin-inline: auto;
 }
 
@@ -43,10 +46,125 @@ img, video{
     display: block;
 }
 
+a{
+    color: var(--secondary-clr);
+    text-decoration: none;
+}
+
 body{
     font-family: var(--ff);
     font-size: var(--fs-sm);
     line-height: 1.5;
     color: var(--secondary-clr);
     background-color: var(--primary);
+}
+
+/* header navigation */
+
+header{
+    background:var(--primary);
+    width: 100vw;
+    position: fixed;
+    top: 0;
+
+    & .container-xl {
+
+        & .flex-container{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            padding-inline: var(--px);
+            
+            .logo{
+                width: 100px;
+            }
+
+            & nav{
+                & a{
+                    padding: .5rem 1rem;
+                }
+            }
+        }
+    }
+}
+
+#toggle{
+    width:55px;
+    aspect-ratio: 1;
+    position: relative;
+
+
+    & span{
+        position:absolute;
+        background: var(--secondary-clr);
+        width:80%;
+        height:5px;
+        border-radius:5px;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: .3s ease-in-out;
+    }
+
+    & span:nth-child(1){
+        top:25%;
+    } 
+
+    & span:nth-child(2){
+        width:60%;
+    }
+
+    & span:nth-child(3){
+        top:75%;
+    } 
+}
+
+#hamburger, #toggle{
+    display:none;
+}
+
+#hamburger:checked ~ #toggle span:nth-child(2){
+    display: none;
+}
+
+#hamburger:checked ~ #toggle span:nth-child(1){
+    top:50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    transition: .3s ease-in-out;
+}
+
+#hamburger:checked ~ #toggle span:nth-child(3){
+    top:50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: .3s ease-in-out;
+}
+
+
+@media screen and (max-width: 900px){
+    #toggle{
+        display:block;
+    }
+
+    header .container-xl .flex-container nav{
+        display:none;
+    }
+
+    #hamburger:checked ~ nav{
+        display:block;
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100vw;
+        background: rgba(31, 41, 55, 0.7);
+        height: calc(100vh - 100px);
+
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+
+        & a:nth-child(1){
+            margin-top: 3rem;
+        }
+    }
 }
