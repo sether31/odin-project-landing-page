@@ -102,7 +102,7 @@ header{
             display:flex;
             align-items:center;
             justify-content:space-between;
-            padding-inline: var(--px);
+            margin-inline: var(--px);
             
             .logo{
                 width: 100px;
@@ -211,7 +211,7 @@ header{
         display:flex;
         justify-content: space-between;
         align-items: center;
-        padding-inline: var(--px);
+        margin-inline: var(--px);
 
         & .hero-text{
             width: 45%;
@@ -346,4 +346,48 @@ header{
     .testimonial .container-xl blockquote p{
         text-align: center;
     }
+}
+
+
+/* cta section */
+
+.cta-section{
+    padding-block: var(--pt);
+
+    & .cta{
+        background-color: var(--accent-clr);
+        color: var(--secondary-clr);
+        border-radius: .5rem;
+
+        & .container-md{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 2rem;
+
+            & .cta-text{
+                & h3{
+                    font-size: var(--fs-md);
+                    margin-bottom: 1rem;
+                }
+            }
+
+            & .secondary{
+                border: 1px solid var(--hero-head-clr);
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .cta-section .cta .container-md{
+        flex-direction: column;
+        gap: 1.5rem;
+        
+        & .cta-text{
+            text-align: center;
+        }
+    }    
 }
