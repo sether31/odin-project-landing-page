@@ -391,3 +391,19 @@ header{
         }
     }    
 }
+
+/* footer */
+footer{
+    padding: 4rem 0;
+    background-color: var(--primary);
+    color:var(--secondary-clr);
+
+    & .container-xl{
+        padding-inline: var(--px);
+
+        & h3{
+            font-size: var(--fs-md);
+            text-align: center;
+        }
+    }
+}
