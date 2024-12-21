@@ -54,7 +54,7 @@ html{
 }
 
 .container-md{
-    width: min(800px, 100vw);
+    width: min(900px, 100vw);
     margin-inline: auto;
 }
 
@@ -273,7 +273,7 @@ header{
         margin-bottom: 3rem;
     }
 
-    & .container-xl{
+    & .container-md{
         padding-inline: var(--px);
     }
 }
@@ -313,5 +313,37 @@ header{
 @media screen and (max-width: 767px) {
     .information .grid{
         grid-template-columns: 1fr;
+    }
+}
+
+
+/* testimonial section */
+
+.testimonial{
+    background-color: var(--primary);
+    color: var(--secondary-clr);
+    padding-block: var(--pt);
+    border-radius: 10% 0 0 0;
+
+    & .container-xl{
+        padding-inline: var(--px);
+
+        & blockquote{
+
+            & q{
+                font-size: var(--fs-lg);
+            }
+
+            & p{
+                text-align:right;
+                margin-top: 1rem;
+            }
+        }
+    } 
+}
+
+@media screen and (max-width: 767px) {
+    .testimonial .container-xl blockquote p{
+        text-align: center;
     }
 }
