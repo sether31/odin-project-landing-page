@@ -237,7 +237,7 @@ header{
         top:100%;
         left:0;
         width:100vw;
-        background: rgba(31, 41, 55, 0.7);
+        background: var(--primary);
         height: calc(100vh - 100px);
 
         display:flex;
@@ -366,6 +366,7 @@ header{
 @media screen and (max-width: 767px) {
     .information .grid{
         grid-template-columns: 1fr;
+        gap: 5rem;
 
         & .grid-item{
 
